@@ -1,5 +1,7 @@
-#include "action_layer.h"
+
+#include QMK_KEYBOARD_H
 #include <stdio.h>
+#include "lily58.h"
 
 #define L_BASE 0
 #define L_LOWER (1 << 1)
@@ -13,7 +15,7 @@ const char *read_layer_state(void) {
   switch (layer_state)
   {
   case L_BASE:
-    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Base");
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Default");
     break;
   case L_RAISE:
     snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Raise");
@@ -26,7 +28,7 @@ const char *read_layer_state(void) {
     snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Adjust");
     break;
   default:
-    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%u", layer_state);
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%lu", (unsigned long)layer_state);
   }
 
   return layer_state_str;

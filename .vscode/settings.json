@@ -4,19 +4,18 @@
     "editor.insertSpaces": true,
     // Configure glob patterns for excluding files and folders.
     "files.exclude": {
-        "**/.build": true,
+        "**/.build": false,
         "**/*.hex": true,
         "**/*.bin": true,
         "**/*.uf2": true
     },
+    "search.exclude": {
+        "**/.build": true
+    },
+    "files.watcherExclude": {
+        "**/.build/**": true
+    },
     "files.associations": {
-        // QMK Filetypes
-        "keyboard.json": "jsonc",
-        "info.json": "jsonc",
-        "keymap.json": "jsonc",
-        "qmk.json": "jsonc",
-        "qmk_module.json": "jsonc",
-        // Standard filetypes
         "*.h": "c",
         "*.c": "c",
         "*.inc": "c",
@@ -31,27 +30,19 @@
         "editor.trimAutoWhitespace": false,
         "files.trimTrailingWhitespace": false
     },
+    "python.analysis.exclude": [
+        "**/.build"
+    ],
+    "python.analysis.ignore": [
+        "**/.build"
+    ],
     "python.formatting.provider": "yapf",
     "[json]": {
         "editor.formatOnSave": false
     },
-    "clangd.arguments": ["--header-insertion=never"],
-    "json.schemas": [
-        {
-            "fileMatch": ["qmk.json"],
-            "url": "./data/schemas/user_repo_v1_1.jsonschema"
-        },
-        {
-            "fileMatch": ["qmk_module.json"],
-            "url": "./data/schemas/community_module.jsonschema"
-        },
-        {
-            "fileMatch": ["keyboard.json", "info.json"],
-            "url": "./data/schemas/keyboard.jsonschema"
-        },
-        {
-            "fileMatch": ["keymap.json"],
-            "url": "./data/schemas/keymap.jsonschema"
-        }
-    ]
+    "clangd.arguments": [
+        "--header-insertion=never"
+    ],
+    "cmake.sourceDirectory": "C:/Users/Tench/qmk_firmware/lib/pico-sdk/test/pico_float_test",
+    "cmake.cmakePath": "C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/cmake/bin/cmake.exe"
 }
